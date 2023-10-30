@@ -1,13 +1,15 @@
 :root {
-  --blue: #29436b;
-  --violet: #7c7db6;
-  --cyan: #b1dde9;
+  --brown: brown;
+  --red: red;
+  --cyan: #124f60;
   --orange: #df8869;
   --white: #ffffff;
+  --yellow: yellow;
+  --blue: blue;
 }
 
 .container-fluid {
-  background-color: var(--blue);
+  background-color: var(--brown);
 }
 
 .wrapper {
@@ -23,11 +25,11 @@
 h1 {
   margin-bottom: 1.5rem;
   font-size: 4rem;
-  color: var(--cyan);
+  color: var(--yellow);
 }
 
 .done {
-  color: var(--violet);
+  color: var(--red);
   text-decoration: line-through;
   font-weight: 500;
 }
