@@ -1,0 +1,79 @@
+:root {
+  --blue: #29436b;
+  --violet: #7c7db6;
+  --cyan: #b1dde9;
+  --orange: #df8869;
+  --white: #ffffff;
+}
+
+.container-fluid {
+  background-color: var(--blue);
+}
+
+.wrapper {
+  background-color: var(--white);
+  width: 500px;
+  height: fit-content;
+  width: fit-content;
+  padding: 1rem;
+  border-radius: 10px;
+  font-size: 1.3rem;
+}
+
+h1 {
+  margin-bottom: 1.5rem;
+  font-size: 4rem;
+  color: var(--cyan);
+}
+
+.done {
+  color: var(--violet);
+  text-decoration: line-through;
+  font-weight: 500;
+}
+
+.add-todo {
+  margin-top: 1rem;
+  min-width: 400px;
+}
+
+input {
+  width: 95%;
+  height: 40px;
+  border-radius: 5px 0 0 5px;
+  border: 1px solid var(--cyan);
+  padding-left: 1rem;
+  font-family: inherit;
+  font-size: .85rem;
+  color: var(--blue);
+}
+
+.btn-add {
+  height: 40px;
+  width: 40px;
+  border: 1px solid var(--cyan);
+  background-color: var(--cyan);
+  color: var(--white);
+  font-size: 0.9rem;
+  border-radius: 0 5px 5px 0;
+}
+
+li {
+  cursor: pointer;
+  width: 80%;
+  margin: .25rem auto;
+  padding: .15rem .45rem;
+  border: 2px solid var(--cyan);
+  border-radius: 5px;
+}
+
+.fa-trash-can {
+  color: var(--orange);
+  font-size: 1rem
+}
+
+input::placeholder{
+  color: var(--blue);
+  opacity: .5;
+  font-family: inherit;
+}
