@@ -13,14 +13,12 @@ createApp({
   methods: {
     getTodo() {
       axios.get(this.apiUrl).then((response) => {
-        // console.log(response.data);
         this.todoList = response.data;
       });
     },
 
     addTodo() {
       const todoFormData = {
-        //nome della chiave: valore della chiave
         newTodoText: this.newTodoText,
       }
 
@@ -39,7 +37,7 @@ createApp({
     },
 
     toggleTodo(index) {
-    // console.log(index);
+    
 
     const todoFormData = {
       toggleTodoIndex: index,
@@ -48,11 +46,10 @@ createApp({
     axios.post(
       this.apiUrl,
       todoFormData,
-      //headers per ingannare il server e fargli credere che è un form
       { headers: { 'Content-Type': 'multipart/form-data' } }
     ).then((response) => {
-      // console.log(response.data);
-      this.getTodo(); //funzione che aggiorna i to do ricaricando la pagina
+    
+      this.getTodo(); 
     });
     },
 
@@ -64,12 +61,12 @@ createApp({
     axios.post(
       this.apiUrl,
       todoFormData,
-      //headers per ingannare il server e fargli credere che è un form
+      
       { headers: { 'Content-Type': 'multipart/form-data' } }
     ).then((response) => {
-      // console.log(response.data);
+      
 
-      this.getTodo(); //funzione che aggiorna i to do ricaricando la pagina
+      this.getTodo(); 
     });
     }
   },
