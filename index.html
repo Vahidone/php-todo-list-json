@@ -32,7 +32,13 @@
 
       <div class="wrapper d-flex justify-content-center align-items-center flex-column">
 
-        
+        <ul class="list-unstyled d-flex justify-content-center align-items-start flex-column w-100" id="todo-list">
+          <li v-for="(todo,index) in  todoList" class="todo fw-bold d-flex justify-content-between align-items-start" :class="todo.done ? 'done' : '' " @click="toggleTodo(index)">
+            <span class="todo">{{ todo.text }}</span>
+            <span @click.stop="deleteTodo(index)" class="trash-can-span"><i class="fa-solid fa-trash-can"></i></span>
+          </li>
+        </ul>
+
 
       </div>
     </div>
