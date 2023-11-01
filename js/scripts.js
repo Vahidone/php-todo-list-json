@@ -12,7 +12,9 @@ createApp({
 
   methods: {
     getTodo() {
-      axios.get(this.apiUrl).then((response) => {
+      axios.get(this.apiUrl)
+      
+      .then((response) => {
         this.todoList = response.data;
       });
     },

@@ -12,8 +12,8 @@ $todo_list = json_decode($file_text);
 if (isset($_POST['newTodoText'])) {
 
   $newTodo = [
-      'text' => $_POST['newTodoText'],
-      'done' => false,
+    'text' => $_POST['newTodoText'],
+    'done' => false,
   ];
 
   array_push($todo_list, $newTodo);
@@ -32,17 +32,18 @@ if (isset($_POST['newTodoText'])) {
       
       $todo_list[$todoIndex]->done = true;
   }
-  ;
+  
   file_put_contents($file_url, json_encode($todo_list));
 
 } else if (isset($_POST['deleteTodoIndex'])) {
   
-
   $todoIndex = $_POST['deleteTodoIndex'];
 
-  array_splice($todo_list, $todoIndex, 1);
+  if($todo_list[$todoIndex]->done) {
+    array_splice($todo_list, $todoIndex, 1);
 
-  file_put_contents($file_url, json_encode($todo_list));
+    file_put_contents($file_url, json_encode($todo_list));
+  }
 
 
 } else {
