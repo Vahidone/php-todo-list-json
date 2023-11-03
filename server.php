@@ -27,20 +27,20 @@ if (isset($_POST['newTodoText'])) {
 
   if ($todo_list[$todoIndex]->done == 1) {
      
-      $todo_list[$todoIndex]->done = false;
+    $todo_list[$todoIndex]->done = false;
   } else {
       
-      $todo_list[$todoIndex]->done = true;
+    $todo_list[$todoIndex]->done = true;
   }
   
   file_put_contents($file_url, json_encode($todo_list));
 
 } else if (isset($_POST['deleteTodoIndex'])) {
   
-  $todoIndex = $_POST['deleteTodoIndex'];
+  $todoIndexRemove = $_POST['deleteTodoIndex'];
 
-  if($todo_list[$todoIndex]->done) {
-    array_splice($todo_list, $todoIndex, 1);
+  if($todo_list[$todoIndexRemove]->done) {
+    array_splice($todo_list, $todoIndexRemove, 1);
 
     file_put_contents($file_url, json_encode($todo_list));
   }

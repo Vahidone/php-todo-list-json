@@ -21,7 +21,7 @@ createApp({
 
     addTodo() {
       const todoFormData = {
-        newTodoText: this.newTodoText,
+        newTodoText: this.newTodoText
       }
 
       axios.post(
