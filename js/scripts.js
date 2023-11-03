@@ -20,15 +20,15 @@ createApp({
     },
 
     addTodo() {
-      const todoFormData = {
-        newTodoText: this.newTodoText
-      }
+      const data = new FormData();
+      data.append('newTodoText', this.newTodoText)
+    
 
       axios.post(
         this.apiUrl,
-        todoFormData,
-        { headers: { 'Content-Type': 'multipart/form-data' } }
-      ).then((response) => {
+        data
+      )
+      .then((response) => {
         console.log(response.data);
 
         this.getTodo();
@@ -39,33 +39,33 @@ createApp({
     },
 
     toggleTodo(index) {
-    
 
-    const todoFormData = {
-      toggleTodoIndex: index,
-    }
+      const data = new FormData();
+      data.append('toggleTodoIndex', index)
+   
 
     axios.post(
       this.apiUrl,
-      todoFormData,
-      { headers: { 'Content-Type': 'multipart/form-data' } }
-    ).then((response) => {
+      data
+     
+    )
+    .then((response) => {
     
       this.getTodo(); 
     });
     },
 
     deleteTodo(index) {
-    const todoFormData = {
-      deleteTodoIndex: index,
-    }
+      const data = new FormData();
+      data.append('deleteTodoIndex', index)
+   
 
     axios.post(
       this.apiUrl,
-      todoFormData,
+      data
       
-      { headers: { 'Content-Type': 'multipart/form-data' } }
-    ).then((response) => {
+    )
+    .then((response) => {
       
 
       this.getTodo(); 
