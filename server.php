@@ -19,6 +19,9 @@ if (isset($_POST['newTodoText'])) {
   array_push($todo_list, $newTodo);
  
   file_put_contents($file_url, json_encode($todo_list));
+
+
+
 } else if (isset($_POST['toggleTodoIndex'])) {
   
   $todoIndex = $_POST['toggleTodoIndex'];
@@ -34,6 +37,8 @@ if (isset($_POST['newTodoText'])) {
   }
   
   file_put_contents($file_url, json_encode($todo_list));
+
+  
 
 } else if (isset($_POST['deleteTodoIndex'])) {
   

@@ -6,6 +6,11 @@
   --white: #ffffff;
   --yellow: yellow;
   --blue: blue;
+  --gray: gray;
+}
+.debug {
+  background-color: rgb(229, 166, 166);
+  border: 1px solid black;
 }
 
 .container-fluid {
@@ -23,6 +28,7 @@
 }
 
 h1 {
+  
   margin-bottom: 1.5rem;
   font-size: 4rem;
   color: var(--yellow);
@@ -78,4 +84,16 @@ input::placeholder{
   color: var(--blue);
   opacity: .5;
   font-family: inherit;
+}
+
+.box-title {
+  width: 600px;
+  height: 300px;
+  margin: auto;
+}
+
+.title,
+.error-box {
+  height: 50%;
+  text-align: center;
 }

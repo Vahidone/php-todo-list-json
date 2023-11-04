@@ -6,8 +6,12 @@ createApp({
       titol: 'Todo List',
       apiUrl: './server.php',
       todoList: [],
-      newTodoText: ''
+      newTodoText: '',
+      errorMessage: '',
+      showError: true
+      
     }
+
   },
 
   methods: {
@@ -18,6 +22,7 @@ createApp({
         this.todoList = response.data;
       });
     },
+    
 
     addTodo() {
       const data = new FormData();
@@ -56,21 +61,36 @@ createApp({
     },
 
     deleteTodo(index) {
-      const data = new FormData();
-      data.append('deleteTodoIndex', index)
+    
+
+      if (this.todoList[index].done == false) {
+        this.showError = true;
+        this.errorMessage = 'ATTENZIONE! devi barrare la voce selezionata prima di eliminarla dalla lista!';
+        return;
+      }else {
+        this.errorMessage = '';
+        const data = new FormData();
+        data.append('deleteTodoIndex', index)
+     
+  
+      axios.post(
+        this.apiUrl,
+        data
+        
+      )
+      .then((response) => {
+        
+  
+        this.getTodo(); 
+      });
+      }
+        
+      },
+      removeError() {
+        this.showError = false;
+      }
+
    
-
-    axios.post(
-      this.apiUrl,
-      data
-      
-    )
-    .then((response) => {
-      
-
-      this.getTodo(); 
-    });
-    }
   },
 
   mounted() {
