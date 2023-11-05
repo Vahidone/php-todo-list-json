@@ -7,24 +7,25 @@
   --yellow: yellow;
   --blue: blue;
   --gray: gray;
+  --black: black;
 }
 
 .debug {
   background-color: rgb(229, 166, 166);
-  border: 1px solid black;
+  border: 1px solid var(--black);
 }
 
 .my-container {
-  background-color: var(--cyan);
+  background-image: linear-gradient(180deg, rgb(5, 37, 37) 10%, rgb(12, 247, 247));
+  /* background-image: linear-gradient(rgb(7, 60, 60), rgb(21, 198, 198)); */
 }
 
 header {
   width: 100%;
-  height: 100px;
+  height: 150px;
   display: flex; 
   justify-content: center;
   align-items: center;
-  background-color: black;
   position: fixed;
   left: 0;
   top: 0;
@@ -37,10 +38,10 @@ header {
   position: fixed;
   left: 0;
   top: 0;
-  margin-top: 100px;
+  margin-top: 150px;
   text-align: center;
   line-height: 70px;
-  background-color: var(--cyan);
+  
 }
 
 h1 {
