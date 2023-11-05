@@ -28,21 +28,16 @@
 
 <body>
   <div id="app">
-    <header class="d-flex justify-content-center align-items-center bg-black py-3">
+    <header class="d-flex justify-content-center align-items-center bg-black py-3 ">
       <h1>{{ titol }}</h1>
     </header>
-    <div class="error-box">
-      <div v-if="errorMessage && showError == true" class="bg-danger">
-        <button @click="removeError" class="btn btn-outline-danger border border-black"><i class="fa-solid fa-xmark fs-3 text-black"></i></button>
-        <p class=" text-white py-1 px-3 rounded-2 fs-3">{{errorMessage}}</p>
+    <div class="error-box bg-danger">
+      <div v-if="errorMessage && showError == true" class="text-white py-1 px-3 rounded-2 fs-3">
+        <button @click="removeError" class="btn btn-outline-danger border border-black me-3 "><i class="fa-solid fa-xmark fs-4 text-white"></i></button>
+        <span>{{errorMessage}}</span>
       </div>
     </div>
-    <div class="container-fluid d-flex justify-content-center align-items-center w-100 flex-column vh-100">
-
-     
-      
-      
-      
+    <div class="my-container d-flex justify-content-center align-items-center w-100 flex-column vh-100">
 
       <div class="wrapper d-flex justify-content-center align-items-center flex-column">
 
