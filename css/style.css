@@ -8,6 +8,7 @@
   --blue: blue;
   --gray: gray;
 }
+
 .debug {
   background-color: rgb(229, 166, 166);
   border: 1px solid black;

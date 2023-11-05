@@ -16,6 +16,7 @@ createApp({
 
   },
 
+  
   methods: {
     getTodo() {
       axios.get(this.apiUrl)
@@ -27,6 +28,12 @@ createApp({
     
 
     addTodo() {
+      if (this.newTodoText.trim() === '') {
+        this.showError = true;
+        this.errorMessage = 'Non puoi lasciare il campo vuoto';
+        return;
+      }
+      
       const data = new FormData();
       data.append('newTodoText', this.newTodoText)
     
