@@ -47,10 +47,10 @@
             
             <input v-else type="text" v-model.trim="editText" @keyup.enter="editTodo" @keyup.esc="cancelEdit">
             <div>
-              <button class="btn btn-outline-danger" @click.stop="deleteTodo(index)" >
-                <i class="fa-solid fa-trash-can"></i>
+              <button class="btn btn-danger" @click.stop="deleteTodo(index)" >
+                <i class="fa-solid fa-trash-can text-white"></i>
               </button>
-              <button class="btn btn-outline-primary" v-if="editingIndex !== index" @click.stop="startEdit(index)" >
+              <button class="btn btn-primary ms-1 " v-if="editingIndex !== index" @click.stop="startEdit(index)" >
                 <i class="fa-regular fa-pen-to-square"></i>
               </button>
               <span v-else @click.stop="editTodo" class="text-success fs-4">
