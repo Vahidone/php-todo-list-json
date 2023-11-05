@@ -42,11 +42,11 @@
       <div class="wrapper d-flex justify-content-center align-items-center flex-column">
 
         <ul class="list-unstyled d-flex justify-content-center align-items-start flex-column w-100" id="todo-list">
-          <li v-for="(todo, index) in todoList" class="todo fw-bold d-flex justify-content-between align-items-start w-100">
-            <span  :class="todo.done ? 'done' : ''" @click="toggleTodo(index)" class="todo" v-if="editingIndex !== index">{{ todo.text }}</span>
+          <li v-for="(todo, index) in todoList" class="fw-bold d-flex justify-content-between align-items-start w-100">
+            <span  :class="todo.done ? 'done' : ''" @click="toggleTodo(index)" v-if="editingIndex !== index">{{ todo.text }}</span>
             
-            <input v-else type="text" v-model.trim="editText" @keyup.enter="editTodo" @keyup.esc="cancelEdit" class="w-75 text-success fs-5 ">
-            <div>
+            <input v-else type="text" v-model.trim="editText" @keyup.enter="editTodo" @keyup.esc="cancelEdit" class="text-success fs-5 px-2">
+            <div class="d-flex justify-content-end">
               <button class="btn btn-danger" @click.stop="deleteTodo(index)" >
                 <i class="fa-solid fa-trash-can text-white"></i>
               </button>
