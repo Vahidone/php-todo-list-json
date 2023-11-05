@@ -2,6 +2,7 @@
 
 <html lang="it">
 
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -27,23 +28,46 @@
 
 <body>
   <div id="app">
-    <div class="container-fluid d-flex justify-content-center align-items-center w-100 flex-column vh-100">
-      <div v-if="errorMessage && showError == true" class="bg-white">
-        <button @click="removeError" class="btn btn-outline-danger border border-white"><i class="fa-solid fa-xmark fs-2 text-black"></i></button>
-        <p class=" text-danger py-1 px-3 rounded-2 fs-3">{{errorMessage}}</p>
-      </div>
-      
-      
+    <header class="d-flex justify-content-center align-items-center bg-black py-3">
       <h1>{{ titol }}</h1>
+    </header>
+    <div class="error-box">
+      <div v-if="errorMessage && showError == true" class="bg-danger">
+        <button @click="removeError" class="btn btn-outline-danger border border-black"><i class="fa-solid fa-xmark fs-3 text-black"></i></button>
+        <p class=" text-white py-1 px-3 rounded-2 fs-3">{{errorMessage}}</p>
+      </div>
+    </div>
+    <div class="container-fluid d-flex justify-content-center align-items-center w-100 flex-column vh-100">
+
+     
+      
+      
+      
 
       <div class="wrapper d-flex justify-content-center align-items-center flex-column">
 
         <ul class="list-unstyled d-flex justify-content-center align-items-start flex-column w-100" id="todo-list">
-          <li v-for="(todo,index) in  todoList" class="todo fw-bold d-flex justify-content-between align-items-start" :class="todo.done ? 'done' : '' " @click="toggleTodo(index)">
-            <span class="todo">{{ todo.text }}</span>
-            <span @click.stop="deleteTodo(index)" class="trash-can-span"><i class="fa-solid fa-trash-can"></i></span>
+          <li v-for="(todo, index) in todoList" class="todo fw-bold d-flex justify-content-between align-items-start w-100" :class="todo.done ? 'done' : ''" @click="toggleTodo(index)">
+            <span class="todo" v-if="editingIndex !== index">{{ todo.text }}</span>
+            
+            <input v-else type="text" v-model.trim="editText" @keyup.enter="editTodo" @keyup.esc="cancelEdit">
+            <div>
+              <button class="btn btn-outline-danger" @click.stop="deleteTodo(index)" >
+                <i class="fa-solid fa-trash-can"></i>
+              </button>
+              <button class="btn btn-outline-primary" v-if="editingIndex !== index" @click.stop="startEdit(index)" >
+                <i class="fa-regular fa-pen-to-square"></i>
+              </button>
+              <span v-else @click.stop="editTodo" class="text-success fs-4">
+                <i class="fa-regular fa-check-square"></i>
+              </span>
+            </div>
+           
+            
           </li>
+          
         </ul>
+        
 
         <div class="add-todo d-flex text-center">
           <input type="text" class="fs-5" placeholder="add new task" v-model.trim="newTodoText" name="newTodoText" @keyup.enter ="addTodo">

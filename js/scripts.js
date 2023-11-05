@@ -8,7 +8,9 @@ createApp({
       todoList: [],
       newTodoText: '',
       errorMessage: '',
-      showError: true
+      showError: true,
+      editingIndex: null,
+      editText: ''
       
     }
 
@@ -44,25 +46,22 @@ createApp({
     },
 
     toggleTodo(index) {
-
-      const data = new FormData();
-      data.append('toggleTodoIndex', index)
-   
-
-    axios.post(
-      this.apiUrl,
-      data
-     
-    )
-    .then((response) => {
+      this.todoList[index].done = !this.todoList[index].done;
     
-      this.getTodo(); 
-    });
+      const data = new FormData();
+      data.append('toggleTodoIndex', index);
+    
+      axios.post(this.apiUrl, data).then((response) => {
+        this.getTodo();
+      });
     },
+    
+    
 
     deleteTodo(index) {
     
 
+      
       if (this.todoList[index].done == false) {
         this.showError = true;
         this.errorMessage = 'ATTENZIONE! devi barrare la voce selezionata prima di eliminarla dalla lista!';
@@ -88,6 +87,36 @@ createApp({
       },
       removeError() {
         this.showError = false;
+      },
+
+      editTodo() {
+        if (this.editingIndex !== null) {
+          const editedTodo = this.todoList[this.editingIndex];
+          editedTodo.text = this.editText;
+  
+          const data = new FormData();
+          data.append('editTodoIndex', this.editingIndex);
+          data.append('editedText', this.editText);
+  
+          axios.post(
+            this.apiUrl,
+            data
+          ).then((response) => {
+            this.getTodo();
+          });
+  
+          // Reset the editing index and editText
+          this.editingIndex = null;
+          this.editText = '';
+        }
+      },
+      startEdit(index) {
+        this.editingIndex = index;
+        this.editText = this.todoList[index].text;
+      },
+      cancelEdit() {
+        this.editingIndex = null;
+        this.editText = '';
       }
 
    

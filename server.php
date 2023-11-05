@@ -1,4 +1,5 @@
 <?php
+
 header('Access-Control-Allow-Origin: *');
 header("Access-Control-Allow-Headers: X-Requested-With");
 
@@ -23,22 +24,11 @@ if (isset($_POST['newTodoText'])) {
 
 
 } else if (isset($_POST['toggleTodoIndex'])) {
-  
   $todoIndex = $_POST['toggleTodoIndex'];
 
-
-
-  if ($todo_list[$todoIndex]->done == 1) {
-     
-    $todo_list[$todoIndex]->done = false;
-  } else {
-      
-    $todo_list[$todoIndex]->done = true;
-  }
+  $todo_list[$todoIndex]->done = !$todo_list[$todoIndex]->done;
   
   file_put_contents($file_url, json_encode($todo_list));
-
-  
 
 } else if (isset($_POST['deleteTodoIndex'])) {
   
@@ -51,7 +41,16 @@ if (isset($_POST['newTodoText'])) {
   }
 
 
-} else {
+}  else if (isset($_POST['editTodoIndex']) && isset($_POST['editedText'])) {
+  $todoIndexEdit = $_POST['editTodoIndex'];
+  $editedText = $_POST['editedText'];
+
+  $todo_list[$todoIndexEdit]->text = $editedText;
+  
+  file_put_contents($file_url, json_encode($todo_list));
+
+} 
+else {
   
   
   header('Content-Type: application/json');

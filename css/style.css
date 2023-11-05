@@ -14,7 +14,21 @@
 }
 
 .container-fluid {
-  background-color: var(--brown);
+  background-color: var(--cyan);
+}
+
+.error-box {
+  height: 70px;
+  text-align: center;
+  line-height: 70px;
+  background-color: var(--cyan);
+}
+
+h1 {
+  
+  margin-bottom: 1.5rem;
+  font-size: 4rem;
+  color: var(--orange);
 }
 
 .wrapper {
@@ -27,12 +41,7 @@
   font-size: 1.3rem;
 }
 
-h1 {
-  
-  margin-bottom: 1.5rem;
-  font-size: 4rem;
-  color: var(--yellow);
-}
+
 
 .done {
   color: var(--red);
