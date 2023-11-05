@@ -53,9 +53,9 @@
               <button class="btn btn-primary ms-1 " v-if="editingIndex !== index" @click.stop="startEdit(index)" >
                 <i class="fa-regular fa-pen-to-square"></i>
               </button>
-              <span v-else @click.stop="editTodo" class="text-success fs-4 ms-4">
+              <button v-else @click.stop="editTodo" class="btn btn-success ms-1">
                 <i class="fa-regular fa-check-square"></i>
-              </span>
+              </button>
             </div>
            
             
