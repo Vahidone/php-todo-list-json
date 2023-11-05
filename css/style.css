@@ -8,6 +8,8 @@
   --blue: blue;
   --gray: gray;
   --black: black;
+  --w-50px: 50px;
+  --h-50px: 50px;
 }
 
 .debug {
@@ -76,7 +78,7 @@ h1 {
 
 input {
   width: 95%;
-  height: 40px;
+  height: var(--w-50px);
   border-radius: 5px 0 0 5px;
   border: 1px solid var(--cyan);
   padding-left: 1rem;
@@ -86,12 +88,12 @@ input {
 }
 
 .btn-add {
-  height: 40px;
-  width: 40px;
+  width: var(--w-50px);
+  height: var(--h-50px);
   border: 1px solid var(--cyan);
   background-color: var(--cyan);
   color: var(--white);
-  font-size: 0.9rem;
+  font-size: 1.1rem;
   border-radius: 0 5px 5px 0;
 }
 
