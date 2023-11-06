@@ -23,7 +23,7 @@ if (isset($_POST['newTodoText'])) {
   file_put_contents($file_url, json_encode($todo_list));
 
 
-
+// si cambia il valore booleano della chiave "done" 
 } else if (isset($_POST['toggleTodoIndex'])) {
   $todoIndex = $_POST['toggleTodoIndex'];
 
@@ -31,6 +31,8 @@ if (isset($_POST['newTodoText'])) {
   
   file_put_contents($file_url, json_encode($todo_list));
 
+
+// qui la logica per eliminare i task barrati 
 } else if (isset($_POST['deleteTodoIndex'])) {
   
   $todoIndexRemove = $_POST['deleteTodoIndex'];
