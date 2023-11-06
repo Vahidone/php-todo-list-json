@@ -126,11 +126,14 @@ createApp({
         }
       },
 
+      // serve per avviare operazione di modifica 
       startEdit(index) {
         this.editingIndex = index;
+        // serve a mostrare il testo attuale dell'attività selezionata, in modo che l'utente possa modificarlo
         this.editText = this.todoList[index].text;
       },
-      
+
+      // si resetta il campo di input dei testo modificato tramite il pulsante esc (in html)
       cancelEdit() {
         this.editingIndex = null;
         this.editText = '';
